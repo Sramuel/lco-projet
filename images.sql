@@ -1,0 +1,10 @@
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Portrait bleu', '2000-01-01', 'image1.jpg', 1);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Marcheur', '2000-01-01', 'image2.jpg', 1);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Sol Rouge', '2000-01-01', 'image3.jpg', 2);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Bulles chaudes', '2010-01-01', 'image4.jpg', 2);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Nature morte', '1985-01-01', 'image5.jpg', 3);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Grotte vivante', '2000-01-01', 'image6.jpg', 4);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Travail Soir', '2000-01-01', 'image7.jpg', 4);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Citron salade', '2000-01-01', 'image8.jpg', 1);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Floue artistique', '2000-01-01', 'image9.jpg', 2);
+INSERT INTO images (nom, date, fichier, id_auteur) VALUES ('Auto', '2000-01-01', 'image10.jpg', 1);
