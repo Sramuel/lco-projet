@@ -7,19 +7,35 @@ const server = http.createServer();
 
 const { Client } = require('pg');
 
-const client = new Client({
-    user: process.env.PGUSER || 'appuser', 
-    password: process.env.PGPASSWORD, 
+const clientSamuel = new Client({
+    user: process.env.PGUSER || 'appuser',
+    password: process.env.PGPASSWORD,
     database: process.env.PGDATABASE || 'application_image',
-    port : 5432
+    port: Number(process.env.PGPORT || 5432)
 });
 
-client.connect()
+const clientAntho = new Client({
+    user: 'antho',
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE || 'application_image',
+    port: Number(process.env.PGPORT || 5432)
+});
+
+clientSamuel.connect()
 .then(() => {
-    console.log('Connected to database');
+    console.log('Connected to database as Samuel');
 })
 .catch((e) => {
-    console.log('Error connecting to database');
+    console.log('Error connecting to database as Samuel');
+    console.log(e);
+});
+
+clientAntho.connect()
+.then(() => {
+    console.log('Connected to database as Antho');
+})
+.catch((e) => {
+    console.log('Error connecting to database as Antho');
     console.log(e);
 });
 
