@@ -34,14 +34,17 @@ server.on("request", async (req, res) => {
         }
     } else if (req.url.startsWith('/page-image/')) {
         try {
+            let urlParts = req.url.split('/');
+            let clef = parseInt(urlParts[2], 10);
             const sqlQuery = `SELECT * FROM images`;
             const sqlResult = await client.query(sqlQuery);
             const images = sqlResult.rows;
             const sqlQuery2 = `SELECT * FROM textes`;
             const sqlResult2 = await client.query(sqlQuery2);
             const textes = sqlResult2.rows;
-            let urlParts = req.url.split('/');
-            let clef = parseInt(urlParts[2], 10);
+            const sqlQuery3 = `SELECT * FROM choix`;
+            const sqlResult3 = await client.query(sqlQuery3, [clef]);
+            const choix = sqlResult3.rows;
             let pageHTML2 = `
         <!DOCTYPE html>
         <html>
@@ -54,6 +57,7 @@ server.on("request", async (req, res) => {
                 <div class="centre">
                     <img src="/public/images/${images[clef-1].fichier}" width="500">
                     <p>${images[clef-1].nom}</p>
+                    <p>${auteurs[clef-1].nom}</p>
                 </div>
                 <div>
                 <p>${textes[clef-1].texte}</p>`;

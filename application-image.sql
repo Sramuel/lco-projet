@@ -13,7 +13,6 @@ CREATE TABLE auteurs (
 CREATE TABLE images (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    date DATE,
     fichier VARCHAR(255) NOT NULL,
     texte TEXT NOT NULL,
     id_auteur int references auteurs(id)

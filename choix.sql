@@ -1,0 +1,10 @@
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (1, 'Lumière', 'Transcendance', 2, 8);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (2, 'Récit', 'Visage', 3, 7);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (3, 'Mémoire', 'Texte', 6, 4);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (4, 'Patrimoine', 'Classique', 9, 1);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (5, 'Mélodie', 'Diffusion', 7, 10);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (6, 'Roche', 'Harmonie', 9, 5);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (7, 'Expression', 'Époque', 4, 3);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (8, 'Rythme', 'Action', 5, 2);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (9, 'Blanc', 'Grandeur', 1, 6);
+INSERT INTO choix (id_image_src, texte1, texte2, id_image_dst1, id_image_dst2) VALUES (10, 'Effet', 'Performance', 2, 8);
