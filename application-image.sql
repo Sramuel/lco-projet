@@ -15,13 +15,8 @@ CREATE TABLE images (
     nom VARCHAR(100) NOT NULL,
     date DATE,
     fichier VARCHAR(255) NOT NULL,
-    id_auteur int references auteurs(id)
-);
-
-CREATE TABLE textes (
-    id SERIAL PRIMARY KEY,
     texte TEXT NOT NULL,
-    id_image int references images(id)
+    id_auteur int references auteurs(id)
 );
 
 CREATE TABLE choix (
@@ -33,7 +28,8 @@ CREATE TABLE choix (
     id_image_dst2 INT REFERENCES images(id) ON DELETE CASCADE
 );
 
-
 \i auteurs.sql
 
 \i images.sql
+
+\i choix.sql
