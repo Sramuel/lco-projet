@@ -86,8 +86,8 @@ server.on("request", async (req, res) => {
                     <div class="page-container">
                         <div class="centre">
                             <img class="image-principale" src="/public/images/${data.fichier}" alt="${data.image_nom}">
+                            <p class="auteur">Auteur de l'image : ${data.auteur_prenom} ${data.auteur_nom}</p>
                             <p class="description">${data.image_texte}</p>
-                            <p class="auteur">Par : ${data.auteur_prenom} ${data.auteur_nom}</p>
                         </div>
                         
                         <div class="choix-container">`;
