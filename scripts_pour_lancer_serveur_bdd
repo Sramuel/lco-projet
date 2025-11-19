@@ -13,3 +13,5 @@ pour lancer un script sql
 \i competitions-sportives.sql
 
 
+pour connaitre l'user
+\du
