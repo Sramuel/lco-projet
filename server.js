@@ -106,9 +106,6 @@ server.on("request", async (req, res) => {
             
             pageHTML2 += `
                         </div>
-                        <div class="centre footer-nav">
-                            <a href="/">Retour au mur</a>
-                        </div>
                     </div>
                 </body>
             </html>`;
