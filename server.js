@@ -159,5 +159,5 @@ server.on("request", async (req, res) => {
 });
 
 server.listen(port, host, () => {
-    console.log(`Server running at http://172.21.40.99:${port}/`);
+    console.log(`Server running at http://localhost:${port}/`);
 });
