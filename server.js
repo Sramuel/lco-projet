@@ -74,13 +74,19 @@ server.on("request", async (req, res) => {
             const data = sqlResult.rows[0]; // Toutes nos données sont ici
 
             // Construction de la page HTML
+            // ... dans pageHTML2 ...
             let pageHTML2 = `
             <!DOCTYPE html>
             <html>
                 <head>
                     <link rel="stylesheet" href="/public/style.css">
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+                    
                     <title>${data.image_nom}</title>
                     <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
                 </head>
                 <body>
                     <div class="page-container">

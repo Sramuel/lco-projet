@@ -1,138 +1,206 @@
-/* --- Styles globaux --- */
+/* 1. Configuration Globale */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif; /* Police moderne pour l'interface */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Fond dégradé subtil */
+    min-height: 100vh;
     margin: 0;
     padding: 20px;
+    display: flex;
+    justify-content: center; /* Centre tout horizontalement */
+    align-items: center;    /* Centre tout verticalement */
+    color: #2c3e50;
 }
 
-h1 {
-    text-align: center;
-}
-
-/* --- Styles pour le Mur (votre code) --- */
-#mur a {
-    display: block;
-    padding: 5px;
-}
-
-#mur img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-@media screen and (min-width: 300px) {
-    #mur {
-        column-count: 1;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    #mur {
-        column-count: 3;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #mur {
-        column-count: 5;
-    }
-}
-
-/* --- Styles pour la Page Image (selon votre schéma) --- */
-
+/* 2. Le Conteneur "Carte" */
 .page-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px 40px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc légèrement transparent */
+    max-width: 900px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px;
+    
+    /* Une belle ombre portée pour donner de la profondeur (effet 3D) */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    
+    /* Animation d'entrée : La carte apparaît en glissant vers le haut */
+    animation: slideUpFade 0.8s ease-out forwards;
 }
 
-/* 'image' et 'texte' du schéma */
+/* 3. L'Image (La star du show) */
 .centre {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .image-principale {
-    /* Correspond à 'image' dans le schéma */
     max-width: 100%;
-    width: 500px;
-    height: auto;
-    border-radius: 20px; /* Bords arrondis comme dans le schéma */
-    border: 3px solid #555;
-    margin-bottom: 15px;
+    max-height: 60vh; /* Empêche l'image d'être trop haute sur grand écran */
+    width: auto;
+    border-radius: 12px;
+    
+    /* Ombre sous l'image */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    
+    /* Animation : L'image apparaît en zoomant légèrement */
+    animation: zoomIn 1s ease-out forwards;
+    opacity: 0; /* Caché au début pour l'animation */
+    animation-delay: 0.3s; /* Commence après 0.3s */
+    animation-fill-mode: forwards; /* Reste visible à la fin */
+    
+    transition: transform 0.3s ease; /* Pour l'effet au survol */
+}
+
+.image-principale:hover {
+    transform: scale(1.02); /* Petit zoom quand on passe la souris dessus */
+}
+
+/* 4. Texte et Auteur */
+.auteur {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espacement des lettres "classe" */
+    color: #888;
+    margin-top: 15px;
+    
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
 .description {
-    /* Correspond à 'texte' dans le schéma */
-    font-size: 1.1em;
-    color: #333;
-    margin-top: 10px;
-    font-style: italic;
+    font-family: 'Lora', serif; /* Police type "Livre" pour le texte culturel */
+    font-size: 1.15rem;
+    line-height: 1.8; /* Plus d'espace entre les lignes pour la lecture */
+    color: #444;
+    margin-top: 20px;
+    text-align: justify; /* Texte justifié comme dans un livre */
+    padding: 0 20px;
+    border-left: 4px solid #337ab7; /* Petite barre bleue à gauche pour le style */
+    
+    opacity: 0;
+    animation: slideRightFade 1s ease-out forwards;
+    animation-delay: 1s; /* Apparaît en dernier */
 }
 
-.auteur {
-    font-size: 0.9em;
-    color: #777;
-}
-
-/* Conteneur pour les choix en bas */
+/* 5. Les Choix (Boutons interactifs) */
 .choix-container {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    width: 100%;
-    /* Corrige l'espacement des inline-block */
-    font-size: 0; 
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between; /* Ecarte les boutons au max */
+    gap: 20px; /* Espace entre les deux boutons */
+    
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s; /* Apparaît après la lecture du texte */
 }
 
-/* 'choix 2' (gauche) */
-.gauche {
-    text-align: left;
-    display: inline-block;
-    width: 49%;
-    font-size: 16px; /* Réinitialise la taille de police */
-    vertical-align: top;
+.gauche, .droite {
+    flex: 1; /* Chaque bouton prend 50% de la place */
 }
 
-/* 'choix 1' (droite) */
-.droite {
-    text-align: right;
-    display: inline-block;
-    width: 49%;
-    font-size: 16px; /* Réinitialise la taille de police */
-    vertical-align: top;
-}
+.gauche { text-align: left; }
+.droite { text-align: right; }
 
-/* Style des liens de choix */
+/* Le style des boutons */
 .gauche a, .droite a {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #337ab7;
+    display: block; /* Prend toute la largeur de son conteneur */
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #337ab7 0%, #2980b9 100%); /* Dégradé bleu */
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.2s;
+    border-radius: 50px; /* Boutons très ronds */
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(51, 122, 183, 0.4); /* Ombre colorée lumineuse */
+    
+    transition: all 0.3s ease; /* Animation fluide */
+    position: relative;
+    overflow: hidden;
 }
 
+/* Effet "Wahou" au survol des boutons */
 .gauche a:hover, .droite a:hover {
-    background-color: #286090;
+    transform: translateY(-5px); /* Le bouton monte */
+    box-shadow: 0 15px 25px rgba(51, 122, 183, 0.5); /* L'ombre grandit */
+    background: linear-gradient(135deg, #4fabff 0%, #337ab7 100%); /* Devient plus clair */
 }
 
-/* Lien de retour */
-.footer-nav {
-    margin-top: 30px;
-    font-size: 0.9em;
+/* --- LES ANIMATIONS (KEYFRAMES) --- */
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.footer-nav a {
-    color: #555;
-    text-decoration: none;
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
-.footer-nav a:hover {
-    text-decoration: underline;
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
+
+@keyframes slideRightFade {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- Responsive (Mobile) --- */
+@media screen and (max-width: 768px) {
+    .page-container {
+        padding: 20px;
+    }
+    
+    .choix-container {
+        flex-direction: column; /* Boutons l'un sous l'autre sur mobile */
+        gap: 15px;
+    }
+    
+    .gauche, .droite {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .description {
+        text-align: left;
+        font-size: 1rem;
+        padding: 0;
+        border: none;
+    }
+}
+
+/* Style minimaliste pour le mur d'images (index) que personne ne voit */
+#mur {
+    column-count: 3;
+    column-gap: 15px;
+}
+#mur img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    filter: grayscale(100%); /* Juste pour le style debug */
+    transition: 0.3s;
+}
+#mur img:hover { filter: grayscale(0%); }
